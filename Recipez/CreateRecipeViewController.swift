@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class CreateRecipeViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate
+class CreateRecipeViewController: UIViewController
 {
     // MARK: --- Properties ---
     var imagePicker : UIImagePickerController!
@@ -74,8 +74,11 @@ class CreateRecipeViewController: UIViewController, UIImagePickerControllerDeleg
             self.navigationController?.popViewControllerAnimated(true)
         }
     }
-    
-    // MARK: --- ImagePicker Protocol Functions ---
+}
+
+// MARK: --- UIImagePickerControllerDelegate Functions ---
+extension CreateRecipeViewController : UIImagePickerControllerDelegate, UINavigationControllerDelegate
+{
     func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage, editingInfo: [String : AnyObject]?)
     {
         imagePicker.dismissViewControllerAnimated(true, completion: nil)

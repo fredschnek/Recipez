@@ -9,7 +9,7 @@
 import UIKit
 import CoreData
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate
+class ViewController: UIViewController
 {
     // MARK: --- Properties ---
     var recipes = [Recipe]()
@@ -60,8 +60,11 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             print(err.debugDescription)
         }
     }
-    
-    // MARK: --- TableView Protocol Functions ---
+}
+
+// MARK: --- UITableViewDataSource Functions ---
+extension ViewController : UITableViewDataSource
+{
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int
     {
         return recipes.count
@@ -82,5 +85,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         else {
             return RecipeCell()
         }
+    }
+}
+
+// MARK: --- UITableViewDelegate Functions ---
+extension ViewController : UITableViewDelegate
+{
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath)
+    {
+        
     }
 }
